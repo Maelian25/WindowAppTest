@@ -40,17 +40,16 @@ public:
 
 	~Window() {
 		std::cout << "Window destroyed!" << std::endl;
-		SDL_DestroyWindow(window);
-		SDL_Quit();
-	}
-
-	void UpdateButton(SDL_Rect r) {
-		SDL_SetRenderDrawColor(renderer, 40, 40, 40, 255);
-		SDL_RenderFillRect(renderer, &r);
+		//SDL_DestroyWindow(window);
 	}
 
 	void Render() {
 		SDL_RenderPresent(renderer);
+	}
+
+	void WindowClose() {
+		SDL_DestroyWindow(window);
+		std::cout << "Window" << window<< "closed!" << std::endl;
 	}
 
 	SDL_Window* GetWindow() {
@@ -59,6 +58,22 @@ public:
 	SDL_Renderer* GetRenderer() {
 		return renderer;
 	}
+
+	void HandleEvent(SDL_Event* event) {
+		if (event->type == SDL_WINDOWEVENT) {
+			switch (event->window.event) {
+			case SDL_WINDOWEVENT_SHOWN:
+				std::cout << "Window shown!" << std::endl;
+				break;
+			case SDL_WINDOWEVENT_CLOSE:
+				std::cout << "Window closed!" << std::endl;
+				WindowClose();
+				break;
+				
+			}
+		}
+	}
+
 
 private:
 	SDL_Window* window{ nullptr };

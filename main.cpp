@@ -8,13 +8,19 @@
 
 int main(int argc, char* argv[])
 {
-	Window GameWindow;
+	Window MenuWindow;
 	Layer UI;
-	Application App{ &GameWindow };
-	Button Button1{ &App };
-	UI.Subscribe(&Button1);
+	Application App{ &MenuWindow };
+	QuitButton QuitButton{ &App };
+	NewWindowButton NewWindowButton{ &App, &MenuWindow };
+	UI.Subscribe(&QuitButton);
+	UI.Subscribe(&NewWindowButton);
 
 	SDL_Event Event;
+
+	QuitButton.setPosition(150, 150);
+	NewWindowButton.setPosition(150, 350);
+
 
 	while (true)
 	{
@@ -29,7 +35,13 @@ int main(int argc, char* argv[])
 			{
 				continue;
 			}
+			App.HandleEvents();
+			
+			
 		}
-		GameWindow.Render();
+		
+		QuitButton.Update();
+		NewWindowButton.Update();
+		MenuWindow.Render();
 	}
 }

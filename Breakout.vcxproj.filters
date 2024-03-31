@@ -21,6 +21,12 @@
     <ClCompile Include="EventReceiver.h">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="WindowUtils.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h">

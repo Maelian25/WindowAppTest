@@ -134,6 +134,8 @@
   <ItemGroup>
     <ClCompile Include="EventReceiver.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="WindowUtils.cpp" />
+    <ClCompile Include="WindowUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
