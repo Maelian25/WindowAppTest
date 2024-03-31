@@ -22,9 +22,6 @@ public:
 
 	void OpenNewWindow() {
 		Window* newWindow = new Window();
-
-		newWindow->Render();
-
 		mOpenedWindows.push_back(newWindow);
 
 		SDL_Event OpenWindowEvent;
@@ -32,6 +29,8 @@ public:
 		OpenWindowEvent.window.event = SDL_WINDOWEVENT_SHOWN;
 		SDL_PushEvent(&OpenWindowEvent);
 
+		newWindow->renderImage("D:/Dev/img_test/test.png", 15, 90, 25, 25);
+		newWindow->Render();
 	}
 
 	void HandleEvents() {
