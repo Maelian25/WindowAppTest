@@ -29,40 +29,35 @@ public:
 		OpenWindowEvent.window.event = SDL_WINDOWEVENT_SHOWN;
 		SDL_PushEvent(&OpenWindowEvent);
 
-		newWindow->renderImage("D:/Dev/img_test/test.png", 15, 90, 25, 25);
+		newWindow->renderImage("D:/Dev/img_test/test.png", 0, 0, 640, 480);
 		newWindow->Render();
+		
 	}
 
 	void HandleEvents() {
 		SDL_Event event;
 		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT)
-			{
-				SDL_Quit();
+			if (event.type == SDL_QUIT) {
+				Quit();
 			}
 
-			auto it = std::find_if(mOpenedWindows.begin(), mOpenedWindows.end(), [&event](Window* window) {
-				return event.type == SDL_WINDOWEVENT && event.window.windowID == SDL_GetWindowID(window->GetWindow());
-				});
-			if (it != mOpenedWindows.end()) {
-				(*it)->HandleEvent(&event);
-				switch (event.window.event) {
-				case SDL_WINDOWEVENT_CLOSE:
-					delete* it;
-					mOpenedWindows.erase(it);
-					for (auto& windows : mOpenedWindows) {
-						std::cout << windows << std::endl;
+			auto it = mOpenedWindows.begin();
+			while (it != mOpenedWindows.end()) {
+				if (event.type == SDL_WINDOWEVENT && event.window.windowID == SDL_GetWindowID((*it)->GetWindow())) {
+					(*it)->HandleEvent(&event);
+					if (event.window.event == SDL_WINDOWEVENT_CLOSE) {
+						delete* it;
+						it = mOpenedWindows.erase(it);
+						if (!mOpenedWindows.empty()) {
+							DoMaximizeWindow(mOpenedWindows[0]->GetWindow());
+						}
+						break;
 					}
-					if (!mOpenedWindows.empty()) {
-						DoMaximizeWindow(mOpenedWindows[0]->GetWindow());
-					}
-					break;
 				}
+				++it;
 			}
 		}
 	}
-
-
 
 private:
 	Window* mWindow;

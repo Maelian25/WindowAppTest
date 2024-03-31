@@ -28,7 +28,6 @@ int main(int argc, char* argv[])
 		{
 			if (Event.type == SDL_QUIT)
 			{
-				SDL_Quit();
 				return 0;
 			}
 			if (UI.OnEvent(&Event))
@@ -37,8 +36,8 @@ int main(int argc, char* argv[])
 			}
 			App.HandleEvents();
 			
-			
-		}
+	}
+		
 		
 		QuitButton.Update();
 		NewWindowButton.Update();

@@ -108,5 +108,5 @@ public:
 		return false;
 		}
 	private:
-			Window* startWindow;
+		Window* startWindow;
 	};
