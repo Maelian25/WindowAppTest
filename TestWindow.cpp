@@ -1,17 +1,27 @@
-// TestWindow.cpp
+#include "CppUnitTest.h"
 #include "Window.h"
-#include <cassert>
 
-void testWindowCreation() {
-    Window window;
-   
-    assert(window.GetWindow() != nullptr);
-    assert(window.GetRenderer() != nullptr);
-}
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-int main() {
-   
-    testWindowCreation();
-    std::cout << "Window creation test passed!" << std::endl;
-    return 0;
+namespace Test 
+{
+    TEST_CLASS(WindowTest) 
+    {
+    public:
+        TEST_METHOD(TestWindowCreation) 
+        {
+            
+            Window window;
+
+            
+            SDL_Window* sdlWindow = window.GetWindow();
+            SDL_Renderer* renderer = window.GetRenderer();
+
+            
+            Assert::IsNotNull(sdlWindow, L"Window pointer is null");
+            Assert::IsNotNull(renderer, L"Renderer pointer is null");
+        }
+
+        
+    };
 }
