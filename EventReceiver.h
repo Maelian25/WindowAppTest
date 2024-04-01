@@ -4,7 +4,5 @@
 class EventReceiver
 {
 public :
-	virtual bool OnEvent(SDL_Event* Event) {
-		return false;
-	}
+	virtual bool OnEvent(SDL_Event* Event);
 };

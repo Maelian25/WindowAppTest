@@ -10,6 +10,6 @@ void DoMaximizeWindow(SDL_Window* window) {
         SDL_RestoreWindow(window);
     }
 
-	SDL_MaximizeWindow(window);
-	std::cout << "Window maximized! " << window << std::endl;
+    SDL_MaximizeWindow(window);
+    std::cout << "Window maximized! " << window << std::endl;
 }

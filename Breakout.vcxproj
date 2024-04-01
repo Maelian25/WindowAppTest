@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Dev\Breakout\SDL2\SDL2-2.30.1\include;D:\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Dev\Breakout\SDL2\SDL2-2.30.1\lib\x64;D:\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\SDL2\SDL2-2.30.1\include;D:\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\SDL2\SDL2-2.30.1\lib\x64;D:\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -132,8 +132,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="EventReceiver.cpp" />
     <ClCompile Include="EventReceiver.h" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowUtils.cpp" />
     <ClCompile Include="WindowUtils.h" />
   </ItemGroup>
