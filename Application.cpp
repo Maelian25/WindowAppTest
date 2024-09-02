@@ -22,7 +22,7 @@ void Application::OpenNewWindow() {
 	OpenWindowEvent.window.event = SDL_WINDOWEVENT_SHOWN;
 	SDL_PushEvent(&OpenWindowEvent);
 
-	newWindow->renderImage("D:/Dev/img_test/test.png", 0, 0, 640, 480);
+	newWindow->renderImage("C:/Users/vuill/Documents/Dev/images/jail.png", 0, 0, 640, 480);
 	newWindow->Render();
 }
 

@@ -70,7 +70,7 @@ void Window::renderImage(const char* path, int x, int y, int w, int h) {
     SDL_Surface* optimizedSurface = nullptr;
     SDL_Surface* imageSurface = IMG_Load(path);
     if (imageSurface == nullptr) {
-        std::cerr << "IMG_Load Error: " << SDL_GetError() << std::endl;
+        std::cerr << "IMG_Load Error: " << SDL_GetError() << imageSurface << std::endl;
         return;
     }
 
